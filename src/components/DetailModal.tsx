@@ -50,24 +50,22 @@ export const DetailModal = ({ isOpen, onClose, title, items }: DetailModalProps)
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] bg-gradient-to-br from-dashboard-card to-dashboard-card/95 border-border/50 shadow-2xl backdrop-blur-sm overflow-hidden flex flex-col">
         <DialogHeader className="pb-4 sm:pb-6 flex-shrink-0">
-          <div className="flex items-start justify-between">
-            <DialogTitle className="text-lg sm:text-2xl font-bold text-foreground flex items-start gap-2 sm:gap-3 min-w-0">
-              <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 border border-primary/20 flex-shrink-0">
-                <DollarSign className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+          <DialogTitle className="text-lg sm:text-2xl font-bold text-foreground flex items-start gap-2 sm:gap-3 min-w-0">
+            <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 border border-primary/20 flex-shrink-0">
+              <DollarSign className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+            </div>
+            <div className="min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                <span className="break-words">{title}</span>
+                <Badge variant="secondary" className="text-xs font-medium self-start">
+                  Detalhado
+                </Badge>
               </div>
-              <div className="min-w-0">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                  <span className="break-words">{title}</span>
-                  <Badge variant="secondary" className="text-xs font-medium self-start">
-                    Detalhado
-                  </Badge>
-                </div>
-                <p className="text-xs sm:text-sm text-muted-foreground font-normal mt-1">
-                  Análise financeira completa
-                </p>
-              </div>
-            </DialogTitle>
-          </div>
+              <p className="text-xs sm:text-sm text-muted-foreground font-normal mt-1">
+                Análise financeira completa
+              </p>
+            </div>
+          </DialogTitle>
         </DialogHeader>
         
         <div className="flex-1 overflow-hidden">

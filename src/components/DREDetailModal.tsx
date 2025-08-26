@@ -250,20 +250,13 @@ export const DREDetailModal = ({ isOpen, onClose, account }: DREDetailModalProps
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader className="pb-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <DialogTitle className="text-xl font-bold text-foreground flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-primary" />
-                {account.name}
-              </DialogTitle>
-              <DialogDescription className="text-muted-foreground mt-1">
-                {analysis.description}
-              </DialogDescription>
-            </div>
-            <Button variant="ghost" size="sm" onClick={onClose}>
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+          <DialogTitle className="text-xl font-bold text-foreground flex items-center gap-2">
+            <BarChart3 className="h-5 w-5 text-primary" />
+            {account.name}
+          </DialogTitle>
+          <DialogDescription className="text-muted-foreground mt-1">
+            {analysis.description}
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
