@@ -1,0 +1,486 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dashboard Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 224 71% 4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    
+    --primary: 45 95% 55%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 45 25% 85%;
+    --secondary-foreground: 45 95% 25%;
+    
+    --muted: 45 15% 92%;
+    --muted-foreground: 45 10% 55%;
+    
+    --accent: 45 95% 65%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+    
+    --warning: 32 95% 44%;
+    --warning-foreground: 355.7 100% 97.3%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    
+    --radius: 1.5rem;
+    
+    /* Dashboard specific colors */
+    --dashboard-bg: 0 0% 97%;
+    --nav-bg: 0 0% 0%;
+    --card-bg: 0 0% 100%;
+    --metric-positive: 142 76% 36%;
+    --metric-negative: 0 84% 60%;
+    --chart-primary: 45 95% 55%;
+    --chart-secondary: 45 95% 65%;
+    --chart-tertiary: 142 76% 36%;
+  }
+
+  .dark {
+    /* Dashboard Dark Theme */
+    --background: 0 0% 0%;
+    --foreground: 210 20% 98%;
+    
+    --card: 0 0% 0%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 0 0% 0%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 25% 15%;
+    --secondary-foreground: 210 100% 85%;
+    
+    --muted: 210 15% 12%;
+    --muted-foreground: 210 10% 65%;
+    
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+    
+    --warning: 32 95% 44%;
+    --warning-foreground: 355.7 100% 97.3%;
+    
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    
+    /* Dashboard specific colors for dark theme */
+    --dashboard-bg: 0 0% 5%;
+    --nav-bg: 210 100% 25%;
+    --card-bg: 210 15% 8%;
+    --metric-positive: 142 76% 36%;
+    --metric-negative: 0 84% 60%;
+    --chart-primary: 210 100% 55%;
+    --chart-secondary: 25 95% 60%;
+    --chart-tertiary: 142 76% 36%;
+  }
+
+/* Custom scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Text clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Responsive table improvements */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0.5rem;
+  }
+  
+  .table-responsive table {
+    min-width: 600px;
+  }
+  
+  .table-responsive th,
+  .table-responsive td {
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Card improvements for mobile */
+@media (max-width: 640px) {
+  .card-mobile-spacing {
+    margin: 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  .mobile-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tablet-compact {
+    padding: 1rem;
+  }
+}
+
+/* Desktop improvements */
+@media (min-width: 1024px) {
+  .desktop-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .desktop-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .desktop-grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Improved touch targets */
+@media (hover: none) and (pointer: coarse) {
+  button, 
+  .cursor-pointer {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Prevent horizontal scroll */
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.container-responsive {
+  width: 100%;
+  max-width: 100vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+}
+
+/* Additional responsive utilities */
+.text-responsive {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .text-responsive {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive {
+    font-size: 1rem;
+  }
+}
+
+.button-responsive {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .button-responsive {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.card-responsive {
+  padding: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .card-responsive {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive {
+    padding: 1.5rem;
+  }
+}
+
+/* Improved form responsiveness */
+.form-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Global Layout Fix - Prevent Cut Content */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Prevent content from being cut off */
+.no-cut {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure all text is visible and wraps properly */
+.text-wrap {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Modal and dialog improvements */
+.modal-content {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+/* Table improvements */
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.responsive-table table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid hsl(var(--border));
+  white-space: nowrap;
+}
+
+/* Card content improvements */
+.card-no-cut {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.card-no-cut * {
+  min-width: 0;
+}
+
+/* Button improvements */
+.button-no-cut {
+  min-width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flexbox improvements */
+.flex-no-cut {
+  min-width: 0;
+}
+
+.flex-no-cut > * {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+/* Grid improvements */
+.grid-no-cut {
+  overflow: hidden;
+}
+
+.grid-no-cut > * {
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .form-responsive {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Hide scrollbars on mobile for cleaner look */
+@media (max-width: 767px) {
+  .mobile-hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .mobile-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/20 dark:bg-gray-900/20 border border-white/30 dark:border-gray-700/30;
+  }
+  
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-primary/20 before:rounded-lg before:-z-10;
+  }
+  
+  .shimmer-effect {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .metric-card-glow {
+    @apply shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thumb-border {
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-track-transparent {
+    scrollbar-track-color: transparent;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
