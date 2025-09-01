@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { MetricCard } from "@/components/MetricCard";
 import { FilterBar } from "@/components/FilterBar";
